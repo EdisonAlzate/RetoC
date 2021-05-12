@@ -43,7 +43,7 @@ body{
      background:#106eb9 ;
      /* width:max-content; */
      margin-left: 60px;
-     margin-top: 30px;
+     margin-top: 12px;
      margin-right: 60px
      
      
@@ -157,6 +157,6 @@ body{
 }
 
 .up-current-status{
-    margin-bottom: 95px;
+    margin-top: 85px;
     
 }

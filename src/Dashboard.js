@@ -8,7 +8,7 @@ export const Dashboard = () => {
     const url ="https://us-central1-cm-devops-294019.cloudfunctions.net/status"
     
     useEffect(() => {
-        const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
+        /* const intervalId = setInterval(() => { */  
           setState(state => ({ data: state.data, error: false, loading: true }))
           
           fetch(url)
@@ -19,9 +19,9 @@ export const Dashboard = () => {
               
               setState({ data: null, error: true, loading: false })
             })
-            }, 2000)
+            /* }, 2000)
             
-            return () => clearInterval(intervalId); //This is important
+            return () => clearInterval(intervalId); */ 
             
         }, [url, useState])
         

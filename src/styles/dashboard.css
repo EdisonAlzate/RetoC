@@ -112,3 +112,23 @@ body{
     display: flex;
     flex-direction: raw;
 }
+
+.time-update{
+    display: flex;
+}
+
+
+.box-60{
+    background:#DDDDDD ;
+    border: solid 1px;
+}
+
+.box-60-80{
+    background:#D6c756 ;
+    border: solid 1px;
+}
+
+.box-100{
+    background:#56c2d6 ;
+    border: solid 1px;
+}

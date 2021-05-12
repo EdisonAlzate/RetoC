@@ -41,14 +41,7 @@ export const Dashboard = () => {
                    className="head-logo"
                 />
                  <div className="loading">
-                {state.data&&
-
-                   <div>
-                   {
-                       state.data.last_updated
-                   }
-                   </div>
-                } loadinggg
+                
             </div> 
 
             <div>
@@ -68,8 +61,16 @@ export const Dashboard = () => {
                     <p header-span>All systems operational</p>
                 </div>
               
-                <div>
-                    <p>Refreshed 12:11:00 UTC-0400</p>
+                <div className="time-update">
+                <p >Refreshed  :</p>
+                {state.data&&
+
+                    <div>
+                    {
+                        state.data.last_updated
+                    }
+                    </div>
+                 } 
                 </div>
               
             </div>
@@ -127,16 +128,49 @@ export const Dashboard = () => {
                                     <div className="container" >
                                     <div className="row"  >
                                     <div className="box">
-                                    {dat.days.map((day)=>{
-                                        return(
-                                            <div className="box">
-                                            
-                                            {day}
-                                            </div>
-                                               
-                                               ) 
+                                    {
+                                        dat.days.map((day)=>{
+                                            console.log(day)
+                                            if (day<60) {
+                                                
+                                                return(
+                                                
+                                                    <div 
+                                                     className="box-60"
+                                                     key={day}>
+                                                     {day}
+                                                    </div>                               
+                                                   
+                                                   ) 
+                                                }else if(day<80) {
+                                                    
+                                                    return(
+                                                
+                                                        <div 
+                                                         className="box-60-80"
+                                                         key={day}>
+                                                        {day}
+                                                        </div>                               
+                                                       
+                                                       ) 
+                                                }else if (day>=80) {
+                                                    
+                                                    return(
+                                                
+                                                        <div 
+                                                         className="box-100"
+                                                         key={day}>
+                                                        {day}
+                                                        </div>                               
+                                                       
+                                                       ) 
+                                                
+                                                } 
+
+                                                
                                             })
-                                        }
+                                           
+                                    }
                                         </div>
                                         </div>
                                     </div>

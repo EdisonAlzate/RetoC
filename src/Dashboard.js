@@ -16,17 +16,23 @@ export const Dashboard = () => {
           
            .then(newData => setState({ data: newData, error: false, loading: false }))
            .catch(function(error) {
-              console.log(error)
+              
               setState({ data: null, error: true, loading: false })
-           })
-        }, 15000)
-
-        return () => clearInterval(intervalId); //This is important
- 
-    }, [url, useState])
-
-   
-   const db=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+            })
+            }, 2000)
+            
+            return () => clearInterval(intervalId); //This is important
+            
+        }, [url, useState])
+        
+        
+        if (state.loading) {
+            return(
+                <div className="animate__animated animate__bounce loader">
+                    please wait 
+                </div>                
+            )
+        }
       
     
 
@@ -84,7 +90,7 @@ export const Dashboard = () => {
                 
                     <div className="content-first">
                         <div className="line-one">
-                            <div>
+                            <div >
                                 <p>Sigo App</p>
                             </div>
                             
@@ -104,7 +110,7 @@ export const Dashboard = () => {
                 
                       Object.keys(dat).map(key => {
                       let newData = key
-                      console.log(newData)
+                      
                       /* console.log(newData.title)
                       newData.key = key */
                       return dat[key]
@@ -114,29 +120,58 @@ export const Dashboard = () => {
                         )
                         } ).map((data)=>{
                         console.log({data})
+
+                            /* //hayar promedio 
+                            var suma = 0;
+
+                            for(var x = 0; x < data.length; x++){
+                                suma += data[x];
+                             }
+                            var promedio = suma / data.length;
+                             console.log(data)
+                             console.log(promedio) */
+
+                             /* var sumatoria = data.reduce(function(acumulador, siguienteValor){
+                                return acumulador + siguienteValor;
+                              }, 0); */
+                              
+                                /* let sum = data.reduce((previous, current) => current += previous);
+                                let avg = sum / data.length; */
+                                    
+
+
                         return(
                             <div>{data.map((dat)=>{
+                                
+                                
+                               
+                                
                                 return(
                                     <div>
-                                    {dat.title}
-                                    <div>
+                                    
+                                    <div className="up-current-status">
                                     {dat.current_status}
                                     </div>
                                     <div>
 
 
                                     <div className="container" >
-                                    <div className="row"  >
-                                    <div className="box">
+                                    <div className="row "  >
+                                    <div className="box ">
+
+
+                                    
+                                    
+                                    <div className="box-responsive ">
                                     {
                                         dat.days.map((day)=>{
-                                            console.log(day)
+                                            
                                             if (day<60) {
                                                 
                                                 return(
                                                 
                                                     <div 
-                                                     className="box-60"
+                                                     className="box-60 "
                                                      key={day}>
                                                      {day}
                                                     </div>                               
@@ -166,11 +201,13 @@ export const Dashboard = () => {
                                                        ) 
                                                 
                                                 } 
+                                            
 
                                                 
                                             })
                                            
                                     }
+                                    </div>
                                         </div>
                                         </div>
                                     </div>

@@ -19,7 +19,7 @@ export const Dashboard = () => {
               console.log(error)
               setState({ data: null, error: true, loading: false })
            })
-        }, 5000)
+        }, 15000)
 
         return () => clearInterval(intervalId); //This is important
  
@@ -52,49 +52,7 @@ export const Dashboard = () => {
             </div> 
 
             <div>
-            <div className="box">
-            {state.data&&
-               
-                state.data.status.apis.map((dat)=>{
-                    return(
-                        
-                              Object.keys(dat).map(key => {
-                              let newData = key
-                              console.log(newData)
-                              /* console.log(newData.title)
-                              newData.key = key */
-                              return dat[key]
-                            })
-                           
-                        
-                    )
-                } ).map((data)=>{
-                    console.log({data})
-                    return(
-                        <div>{data.map((dat)=>{
-                            return(
-                                <div>
-                                {dat.title}
-                                <div>
-                                {dat.current_status}
-                                </div>
-                                <div>
-                                {dat.days.map((day)=>{
-                                    return(
-                                       
-                                        <div className="box">
-                                         box
-                                        </div>
-                                
-                                    )
-                                })}
-                                </div>
-                                </div>
-                            )
-                        })}</div>
-                    )})
-            }
-            </div>
+            
             
             </div>
 
@@ -123,32 +81,75 @@ export const Dashboard = () => {
                 </div>
 
                 
-                <div className="content-first">
-                    <div className="line-one">
-                        <div>
-                            <p>Sigo App</p>
-                        </div>
-                        
-                        <div>
-                            <p>up</p>
-                        </div>
+                    <div className="content-first">
+                        <div className="line-one">
+                            <div>
+                                <p>Sigo App</p>
+                            </div>
+                            
+                            <div>
+                                <p>up</p>
+                         </div>
                     </div>
-
-                    <div className="box">
-                        {
-                            db.map((number)=>{
-                                return (
-
-                                  <div className="box">
-                                  box
-                                  </div>
-                                
-                                    
-                            )}
-                                )
-                        }
                     
-                    </div>
+                    
+                
+                    
+                   <div >
+                   {state.data&&
+                       
+                    state.data.status.apis.map((dat)=>{
+                        return(
+                
+                      Object.keys(dat).map(key => {
+                      let newData = key
+                      console.log(newData)
+                      /* console.log(newData.title)
+                      newData.key = key */
+                      return dat[key]
+                    })
+                   
+                
+                        )
+                        } ).map((data)=>{
+                        console.log({data})
+                        return(
+                            <div>{data.map((dat)=>{
+                                return(
+                                    <div>
+                                    {dat.title}
+                                    <div>
+                                    {dat.current_status}
+                                    </div>
+                                    <div>
+
+
+                                    <div className="container" >
+                                    <div className="row"  >
+                                    <div className="box">
+                                    {dat.days.map((day)=>{
+                                        return(
+                                            <div className="box">
+                                            
+                                            {day}
+                                            </div>
+                                               
+                                               ) 
+                                            })
+                                        }
+                                        </div>
+                                        </div>
+                                    </div>
+
+
+                                    </div>
+                                    </div>
+                                )
+                    }   )}</div>
+                    )})
+                 }
+                   </div>
+                 
 
                     <div className="line-three">
                         <div>
@@ -161,11 +162,8 @@ export const Dashboard = () => {
                     </div>
                        
                     
-                
 
-
-
-                <div >
+                 {/* <div >
                     <div className="line-one">
                         <div>
                             <p>tracking</p>
@@ -205,7 +203,7 @@ export const Dashboard = () => {
                     
                     <div>
                     </div>
-                    </div>
+                    </div> */}
                     <p className="overall">OVERALL UPTIME</p>
 
                     <div className="last-item">

@@ -18,8 +18,9 @@ export const Dashboard = () => {
            .catch(function(error) {
               
               setState({ data: null, error: true, loading: false })
+     
             })
-            }, 2000)
+            }, 20000)
             
             return () => clearInterval(intervalId); 
             
@@ -39,6 +40,7 @@ export const Dashboard = () => {
     return (
         <>
        
+        
         
         <div >
         

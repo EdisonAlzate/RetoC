@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Dashboard } from './Dashboard';
+import { AppRouter } from './component/auth/AppRouter';
+
 
 
 ReactDOM.render(
   
-    <Dashboard />
+    <AppRouter />
   ,
   document.getElementById('root')
 );

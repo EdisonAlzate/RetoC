@@ -1,5 +1,7 @@
 
 import { useEffect, useState } from "react"
+import { useHistory } from "react-router"
+
 import "./styles/dashboard.css"
 
 export const Dashboard = () => {
@@ -7,8 +9,9 @@ export const Dashboard = () => {
     const [state, setState] = useState({ data: null, error: false, loading: true ,})
     const url ="https://us-central1-cm-devops-294019.cloudfunctions.net/status"
     
+    const history =useHistory();
     useEffect(() => {
-        const intervalId = setInterval(() => {  
+        /* const intervalId = setInterval(() => { */  
           setState(state => ({ data: state.data, error: false, loading: true }))
           
           fetch(url)
@@ -20,9 +23,9 @@ export const Dashboard = () => {
               setState({ data: null, error: true, loading: false })
      
             })
-            }, 20000)
+            /* }, 2000)
             
-            return () => clearInterval(intervalId); 
+            return () => clearInterval(intervalId); */ 
             
         }, [url, useState])
         
@@ -34,24 +37,33 @@ export const Dashboard = () => {
                 </div>                
             )
         }
-      
-    
+     
+        
+        
+        const handleLogout=()=>{
+            console.log('click in logout')
+            history.replace("/login")
+        }
 
     return (
         <>
-       
-        
         
         <div >
-        
-                <img 
-                   src="https://userscontent2.emaze.com/images/b628b504-6713-4ef8-a7b8-410257bd9f84/71ea9d526454c264840cba5e6464a4c2.jpg" alt="logoCoordinadora"
-                   className="head-logo"
-                />
-                 
+                <div className="logout">
+                    <img 
+                        src="https://userscontent2.emaze.com/images/b628b504-6713-4ef8-a7b8-410257bd9f84/71ea9d526454c264840cba5e6464a4c2.jpg" alt="logoCoordinadora"
+                        className="head-logo"
+                    />
+                    
 
-            
-
+                    <button 
+                        className="nav-item nav-link btn btn-primary log"
+                        onClick={ handleLogout }
+                    > 
+                        Logout
+                    </button>
+                </div>
+                
 
             </div>    
             
@@ -59,6 +71,8 @@ export const Dashboard = () => {
                 <div>
                     <p header-span>All systems operational</p>
                 </div>
+
+               
               
                 <div className="time-update">
                     <p >Refreshed  :</p>

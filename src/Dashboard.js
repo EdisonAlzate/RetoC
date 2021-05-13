@@ -19,7 +19,7 @@ export const Dashboard = () => {
               
               setState({ data: null, error: true, loading: false })
             })
-            }, 2000)
+            }, 200000)
             
             return () => clearInterval(intervalId); 
             

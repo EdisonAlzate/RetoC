@@ -10,7 +10,7 @@ const handleLogin=()=>{
 
     return (
         <div className="container mt-5">
-            <h1>Login</h1>
+            <h1>LOGIN</h1>
             <hr />
 
             <button

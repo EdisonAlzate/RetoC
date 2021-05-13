@@ -29,7 +29,7 @@ export const Dashboard = () => {
         if (state.loading) {
             return(
                 <div className="animate__animated animate__bounce loader">
-                    please wait 
+                    Please Wait 
                 </div>                
             )
         }
@@ -46,18 +46,9 @@ export const Dashboard = () => {
                    src="https://userscontent2.emaze.com/images/b628b504-6713-4ef8-a7b8-410257bd9f84/71ea9d526454c264840cba5e6464a4c2.jpg" alt="logoCoordinadora"
                    className="head-logo"
                 />
-                 <div className="loading">
-                
-            </div> 
+                 
 
-            <div>
             
-            
-            </div>
-
-            <div>
-            
-            </div>
 
 
             </div>    
@@ -68,15 +59,16 @@ export const Dashboard = () => {
                 </div>
               
                 <div className="time-update">
-                <p >Refreshed  :</p>
-                {state.data&&
-
-                    <div>
+                    <p >Refreshed  :</p>
                     {
-                        state.data.last_updated
-                    }
-                    </div>
-                 } 
+                        state.data&&
+
+                        <div>
+                        {
+                            state.data.last_updated
+                        }
+                        </div>
+                    } 
                 </div>
               
             </div>
@@ -88,55 +80,38 @@ export const Dashboard = () => {
                 </div>
 
                 
-                    <div className="content-first">
-                        <div className="line-one">
+                <div className="content-first">
+                      <div className="line-one">
                             <div >
                                 <p>Sigo App</p>
                             </div>
                             
                             <div>
                                 <p>up</p>
-                         </div>
-                    </div>
+                            </div>
+                       </div>
                     
                     
                 
                     
-                   <div >
-                   {state.data&&
-                       
-                    state.data.status.apis.map((dat)=>{
-                        return(
-                
-                      Object.keys(dat).map(key => {
-                      let newData = key
-                      
-                      /* console.log(newData.title)
-                      newData.key = key */
-                      return dat[key]
-                    })
-                   
-                
-                        )
-                        } ).map((data)=>{
-                        console.log({data})
+                <div >
+                    {
+                        state.data&&
+                        
+                        state.data.status.apis.map((dat)=>{
+                            return(
+                    
+                        Object.keys(dat).map(key => {
+                        let newData = key                    
+                        
+                        return dat[key]
+                        })                   
+                    
+                            )
+                            } ).map((data)=>{
+                            console.log({data})
 
-                            /* //hayar promedio 
-                            var suma = 0;
-
-                            for(var x = 0; x < data.length; x++){
-                                suma += data[x];
-                             }
-                            var promedio = suma / data.length;
-                             console.log(data)
-                             console.log(promedio) */
-
-                             /* var sumatoria = data.reduce(function(acumulador, siguienteValor){
-                                return acumulador + siguienteValor;
-                              }, 0); */
-                              
-                                /* let sum = data.reduce((previous, current) => current += previous);
-                                let avg = sum / data.length; */
+                            
                                     
 
 
@@ -153,14 +128,9 @@ export const Dashboard = () => {
                                     {dat.current_status}
                                     </div>
                                     <div>
-
-
                                     <div className="container" >
-                                    <div className="row "  >
-                                    <div className="box ">
-
-
-                                    
+                                     <div className="row "  >
+                                      <div className="box ">
                                     
                                     <div className="box-responsive ">
                                     {
@@ -184,7 +154,7 @@ export const Dashboard = () => {
                                                         <div 
                                                          className="box-60-80"
                                                          key={day}>
-                                                        {day}
+                                                         {day}
                                                         </div>                               
                                                        
                                                        ) 
@@ -195,31 +165,26 @@ export const Dashboard = () => {
                                                         <div 
                                                          className="box-100"
                                                          key={day}>
-                                                        {day}
+                                                         {day}
                                                         </div>                               
                                                        
                                                        ) 
                                                 
-                                                } 
-                                            
-
-                                                
+                                                }                                                 
                                             })
                                            
                                     }
                                     </div>
-                                        </div>
-                                        </div>
-                                    </div>
-
-
-                                    </div>
-                                    </div>
-                                )
-                    }   )}</div>
-                    )})
-                 }
-                   </div>
+                                  </div>
+                                 </div>
+                              </div>
+                             </div>
+                            </div>
+                           )
+                        }   )}</div>
+                       )})
+                    }
+                </div>
                  
 
                     <div className="line-three">
@@ -231,50 +196,8 @@ export const Dashboard = () => {
                             <p>today</p>
                         </div>
                     </div>
-                       
-                    
 
-                 {/* <div >
-                    <div className="line-one">
-                        <div>
-                            <p>tracking</p>
-                        </div>
-                        
-                        <div>
-                            <p>up</p>
-                        </div>
-                    </div>
-
-                    <div className="box">
-                        {
-                            db.map((number)=>{
-                                return (
-
-                                  <div className="box">
-                                  box
-                                  </div>
-                                
-                                    
-                            )}
-                                )
-                        }
-                    
-                    </div>
-
-                    <div className="line-three">
-                        <div>
-                            <p>100%</p>
-                        </div>
-                        
-                        <div>
-                            <p>today</p>
-                        </div>
-                    </div>
-                       
-                    
-                    <div>
-                    </div>
-                    </div> */}
+                 
                     <p className="overall">OVERALL UPTIME</p>
 
                     <div className="last-item">

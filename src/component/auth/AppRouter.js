@@ -10,6 +10,8 @@ import {
   } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
 import { authReducer } from './authReducer';
+import { PrivateRoute } from '../routersPrivates/PrivateRoute';
+import { PublicRoute } from '../routersPrivates/PublicRoute';
 
 const init = () => {
     return JSON.parse(localStorage.getItem('user')) || { logged: false };
@@ -32,8 +34,18 @@ export const AppRouter = () => {
                 <Router>
                     <div>
                         <Switch>
-                            <Route exact path="/login" component={LoginScreen}/>
-                            <Route path="/dashboard" component={Dashboard}/>
+                            
+                            <PublicRoute 
+                                exact 
+                                path="/login" 
+                                component={LoginScreen}
+                                isAuthenticated={ user.logged }
+                            />
+                            <PrivateRoute 
+                                path="/"
+                                component={Dashboard}
+                                isAuthenticated={ user.logged }
+                            />
                             <Redirect to="/login" />
                             
                         </Switch>

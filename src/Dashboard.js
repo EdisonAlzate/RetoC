@@ -14,7 +14,7 @@ export const Dashboard = () => {
     const history =useHistory();
     const {dispatch,user:{ name }}=useContext(AuthContext)
     useEffect(() => {
-        /* const intervalId = setInterval(() => { */  
+        const intervalId = setInterval(() => {  
           setState(state => ({ data: state.data, error: false, loading: true }))
           
           fetch(url)
@@ -26,9 +26,9 @@ export const Dashboard = () => {
               setState({ data: null, error: true, loading: false })
      
             })
-            /* }, 2000)
+            }, 2000)
             
-            return () => clearInterval(intervalId); */ 
+            return () => clearInterval(intervalId); 
             
         }, [url, useState])
         
@@ -214,15 +214,7 @@ export const Dashboard = () => {
                 </div>
                  
 
-                    <div className="line-three">
-                        <div>
-                            <p>98%</p>
-                        </div>
-                        
-                        <div>
-                            <p>today</p>
-                        </div>
-                    </div>
+                    
 
                  
                     <p className="overall">OVERALL UPTIME</p>

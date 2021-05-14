@@ -6,6 +6,7 @@ import { AuthContext } from './AuthContext'
 export const LoginScreen = () => {
     const history=useHistory()
     const {dispatch}=useContext(AuthContext)
+    const lastPath = localStorage.getItem(('lastPath') || "/")
 
     const handleLogin=()=>{
     dispatch({
@@ -14,7 +15,8 @@ export const LoginScreen = () => {
             name: 'Edison Alzate'
         }
     });
-    history.replace("/Dashboard")
+    
+    history.goBack( lastPath );
 }
 
     return (

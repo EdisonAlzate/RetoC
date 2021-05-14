@@ -5,9 +5,9 @@ import { AppRouter } from './component/auth/AppRouter';
 
 
 ReactDOM.render(
-  
-    <AppRouter />
-  ,
+     
+     <AppRouter />
+    ,
   document.getElementById('root')
 );
 

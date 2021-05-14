@@ -1,8 +1,10 @@
 
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router"
+import { AuthContext } from "./component/auth/AuthContext"
 
 import "./styles/dashboard.css"
+import { types } from "./types/types"
 
 export const Dashboard = () => {
    
@@ -10,6 +12,7 @@ export const Dashboard = () => {
     const url ="https://us-central1-cm-devops-294019.cloudfunctions.net/status"
     
     const history =useHistory();
+    const {dispatch,user:{ name }}=useContext(AuthContext)
     useEffect(() => {
         /* const intervalId = setInterval(() => { */  
           setState(state => ({ data: state.data, error: false, loading: true }))
@@ -38,12 +41,16 @@ export const Dashboard = () => {
             )
         }
      
-        
-        
-        const handleLogout=()=>{
-            console.log('click in logout')
-            history.replace("/login")
+        const handleLogout = () => {
+
+            history.replace('/login');
+    
+            dispatch({
+                type: types.logout
+            });
         }
+    
+        
 
     return (
         <>
@@ -55,13 +62,17 @@ export const Dashboard = () => {
                         className="head-logo"
                     />
                     
+                    <div className="user-name"> 
+                        <span>{name  }</span>
 
-                    <button 
-                        className="nav-item nav-link btn btn-primary log"
-                        onClick={ handleLogout }
-                    > 
-                        Logout
-                    </button>
+                        <button 
+                            className="nav-item nav-link btn btn-primary log"
+                            onClick={ handleLogout }
+                        > 
+                            Logout
+                        </button>
+                    </div>
+
                 </div>
                 
 

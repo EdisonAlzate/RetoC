@@ -177,3 +177,13 @@ body{
     height: max-content;
     font-weight: 20px;
 }
+
+.user-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:blue;
+    font-size: 20px;
+    border: solid 2px;
+    border-radius: 5px;
+}

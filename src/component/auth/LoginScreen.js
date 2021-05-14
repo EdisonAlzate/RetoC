@@ -1,11 +1,12 @@
 import React from 'react'
-import { useHistory } from 'react-router'
+import {  useHistory } from 'react-router'
 
 export const LoginScreen = () => {
     const history=useHistory()
     
 const handleLogin=()=>{
-    history.replace("/")
+    
+    history.replace("/Dashboard")
 }
 
     return (
